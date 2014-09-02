@@ -4,12 +4,27 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
   <script>
-    angular.module('app', []);
+    var app = angular.module('app', []);
+    app.controller('PostsCtrl', function($scope) {
+      $scope.posts = [
+        {
+          username: 'dickeyxxx',
+          body: 'Node rules!'
+        },
+        {
+          username: 'jeffdickey',
+          body: 'trying out angular.js...'
+        }
+      ]
+    });
   </script>
 </head>
 <body ng-app="app">
   <div class="container">
     <h1>Recent Posts</h1>
+    <div ng-controller="PostsCtrl">
+      {{ posts }}
+    </div>
     <ul class="list-group">
       <li class="list-group-item">
         <strong>@dickeyxxx</strong>

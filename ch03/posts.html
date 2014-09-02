@@ -25,8 +25,13 @@
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
   <script>
+    // Create our app module.
     var app = angular.module('app', []);
+
+    // Create the PostsCtrl module. Dependency inject $scope.
     app.controller('PostsCtrl', function($scope) {
+
+      // Starting data.
       $scope.posts = [
         {
           username: 'dickeyxxx',
@@ -37,11 +42,15 @@
           body: 'trying out angular.js...'
         }
       ];
+
+      // This function runs when the "Add Post" button is clicked.
       $scope.addPost = function() {
+        // Add a new post onto $scope.posts.
         $scope.posts.unshift({
           username: 'webchick',
           body: $scope.postBody
         });
+        // Clear out the input field.
         $scope.postBody = null;
       }
     });

@@ -45,13 +45,16 @@
 
       // This function runs when the "Add Post" button is clicked.
       $scope.addPost = function() {
-        // Add a new post onto $scope.posts.
-        $scope.posts.unshift({
-          username: 'webchick',
-          body: $scope.postBody
-        });
-        // Clear out the input field.
-        $scope.postBody = null;
+        // Only add a post if there's a body.
+        if ($scope.postBody) {
+          // Add a new post onto $scope.posts.
+          $scope.posts.unshift({
+            username: 'webchick',
+            body: $scope.postBody
+          });
+          // Clear out the input field.
+          $scope.postBody = null;
+        }
       }
     });
   </script>
